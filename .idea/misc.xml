@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/AndroidApp/Kotlin_JetPack/app/src/main/res/drawable/anim_state_list_m01.xml" value="0.234" />
+        <entry key="..\:/AndroidApp/Kotlin_JetPack/app/src/main/res/drawable/bottom_btn_selected_color.xml" value="0.2275" />
+        <entry key="..\:/AndroidApp/Kotlin_JetPack/app/src/main/res/drawable/cardview_bj.xml" value="0.2275" />
+        <entry key="..\:/AndroidApp/Kotlin_JetPack/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2275" />
+        <entry key="..\:/AndroidApp/Kotlin_JetPack/app/src/main/res/drawable/ic_notifications_black_24dp.xml" value="0.2275" />
+        <entry key="..\:/AndroidApp/Kotlin_JetPack/app/src/main/res/drawable/log_bt.xml" value="0.2275" />
+        <entry key="..\:/AndroidApp/Kotlin_JetPack/app/src/main/res/drawable/qvfw_bj.xml" value="0.2275" />
+        <entry key="..\:/AndroidApp/Kotlin_JetPack/app/src/main/res/drawable/song_rv.xml" value="0.331" />
+        <entry key="..\:/AndroidApp/Kotlin_JetPack/app/src/main/res/drawable/ssk_shap.xml" value="0.2275" />
+        <entry key="..\:/AndroidApp/Kotlin_JetPack/app/src/main/res/drawable/text2.xml" value="0.2275" />
+        <entry key="..\:/AndroidApp/Kotlin_JetPack/app/src/main/res/drawable/text_1.xml" value="0.3275" />
+        <entry key="..\:/AndroidApp/Kotlin_JetPack/app/src/main/res/drawable/text_2.xml" value="0.1465" />
+        <entry key="..\:/AndroidApp/Kotlin_JetPack/app/src/main/res/drawable/top_button_shap.xml" value="0.2275" />
+        <entry key="..\:/AndroidApp/Kotlin_JetPack/app/src/main/res/layout/activity_bfl_base.xml" value="0.33559782608695654" />
+        <entry key="..\:/AndroidApp/Kotlin_JetPack/app/src/main/res/layout/activity_gedansquare.xml" value="0.35144927536231885" />
+        <entry key="..\:/AndroidApp/Kotlin_JetPack/app/src/main/res/layout/activity_login.xml" value="0.3351449275362319" />
+        <entry key="..\:/AndroidApp/Kotlin_JetPack/app/src/main/res/layout/activity_love_list.xml" value="0.35144927536231885" />
+        <entry key="..\:/AndroidApp/Kotlin_JetPack/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/AndroidApp/Kotlin_JetPack/app/src/main/res/layout/activity_main2.xml" value="0.3292572463768116" />
+        <entry key="..\:/AndroidApp/Kotlin_JetPack/app/src/main/res/layout/activity_play_music.xml" value="0.33" />
+        <entry key="..\:/AndroidApp/Kotlin_JetPack/app/src/main/res/layout/activity_song_list.xml" value="0.33559782608695654" />
+        <entry key="..\:/AndroidApp/Kotlin_JetPack/app/src/main/res/layout/activity_songreview.xml" value="0.3500905797101449" />
+        <entry key="..\:/AndroidApp/Kotlin_JetPack/app/src/main/res/layout/bfl.xml" value="0.25" />
+        <entry key="..\:/AndroidApp/Kotlin_JetPack/app/src/main/res/layout/content_bfl_base.xml" value="0.2265625" />
+        <entry key="..\:/AndroidApp/Kotlin_JetPack/app/src/main/res/layout/fragment_1.xml" value="0.35144927536231885" />
+        <entry key="..\:/AndroidApp/Kotlin_JetPack/app/src/main/res/layout/fragment_base.xml" value="0.21197916666666666" />
+        <entry key="..\:/AndroidApp/Kotlin_JetPack/app/src/main/res/layout/fragment_dashboard.xml" value="0.31666666666666665" />
+        <entry key="..\:/AndroidApp/Kotlin_JetPack/app/src/main/res/layout/fragment_first.xml" value="0.2265625" />
+        <entry key="..\:/AndroidApp/Kotlin_JetPack/app/src/main/res/layout/fragment_gedansquare1.xml" value="0.35144927536231885" />
+        <entry key="..\:/AndroidApp/Kotlin_JetPack/app/src/main/res/layout/fragment_gedansquare2.xml" value="0.35144927536231885" />
+        <entry key="..\:/AndroidApp/Kotlin_JetPack/app/src/main/res/layout/fragment_home.xml" value="0.2691029900332226" />
+        <entry key="..\:/AndroidApp/Kotlin_JetPack/app/src/main/res/layout/fragment_music_tab.xml" value="0.15" />
+        <entry key="..\:/AndroidApp/Kotlin_JetPack/app/src/main/res/layout/fragment_notifications.xml" value="0.22291666666666668" />
+        <entry key="..\:/AndroidApp/Kotlin_JetPack/app/src/main/res/layout/fragment_paging__load_state.xml" value="0.35144927536231885" />
+        <entry key="..\:/AndroidApp/Kotlin_JetPack/app/src/main/res/layout/fragment_songlist.xml" value="0.33559782608695654" />
+        <entry key="..\:/AndroidApp/Kotlin_JetPack/app/src/main/res/layout/fragment_tjview1.xml" value="0.33559782608695654" />
+        <entry key="..\:/AndroidApp/Kotlin_JetPack/app/src/main/res/layout/nav_header.xml" value="0.34375" />
+        <entry key="..\:/AndroidApp/Kotlin_JetPack/app/src/main/res/layout/newsong_rv.xml" value="0.33559782608695654" />
+        <entry key="..\:/AndroidApp/Kotlin_JetPack/app/src/main/res/layout/playlist_view.xml" value="0.35144927536231885" />
+        <entry key="..\:/AndroidApp/Kotlin_JetPack/app/src/main/res/layout/qbfw_view.xml" value="0.25" />
+        <entry key="..\:/AndroidApp/Kotlin_JetPack/app/src/main/res/layout/review_song_view.xml" value="0.3500905797101449" />
+        <entry key="..\:/AndroidApp/Kotlin_JetPack/app/src/main/res/layout/rv_test.xml" value="0.3292572463768116" />
+        <entry key="..\:/AndroidApp/Kotlin_JetPack/app/src/main/res/layout/sheet_rv.xml" value="0.33" />
+        <entry key="..\:/AndroidApp/Kotlin_JetPack/app/src/main/res/layout/skeleton_home.xml" value="0.35144927536231885" />
+        <entry key="..\:/AndroidApp/Kotlin_JetPack/app/src/main/res/layout/song_rv.xml" value="0.33" />
+        <entry key="..\:/AndroidApp/Kotlin_JetPack/app/src/main/res/layout/test_rv.xml" value="0.3292572463768116" />
+        <entry key="..\:/AndroidApp/Kotlin_JetPack/app/src/main/res/layout/view_notify_big_play.xml" value="0.67" />
+        <entry key="..\:/AndroidApp/Kotlin_JetPack/app/src/main/res/layout/view_notify_play.xml" value="0.3351449275362319" />
+        <entry key="..\:/AndroidApp/Kotlin_JetPack/app/src/main/res/menu/bottom_nav_menu.xml" value="0.36614583333333334" />
+        <entry key="..\:/AndroidApp/Kotlin_JetPack/app/src/main/res/menu/nav_menu.xml" value="0.3614583333333333" />
+        <entry key="..\:/AndroidApp/Kotlin_JetPack/app/src/main/res/xml/network.xml" value="0.18854166666666666" />
+        <entry key="..\:/AndroidApp/Kotlin_JetPack/app/src/main/res/xml/style.xml" value="0.3292572463768116" />
+        <entry key="..\:/AndroidApp/Kotlin_JetPack/app/src/main/res/xml/xml.xml" value="0.17395833333333333" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>
