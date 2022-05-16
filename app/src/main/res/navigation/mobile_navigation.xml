@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_home">
+
+    <fragment
+        android:id="@+id/navigation_home"
+        android:name="com.example.kotlin_jetpack.ui.ui.home.HomeFragment"
+        android:label="@string/title_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_navigation_home_to_play_Music"
+            app:destination="@id/play_Music" />
+        <action
+            android:id="@+id/action_navigation_home_to_songlist"
+            app:destination="@id/songlist" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_dashboard"
+        android:name="com.example.kotlin_jetpack.ui.ui.dashboard.DashboardFragment"
+        android:label="@string/title_dashboard"
+        tools:layout="@layout/fragment_dashboard" >
+        <argument
+            android:name="Argumets"
+            app:nullable="true" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_notifications"
+        android:name="com.example.kotlin_jetpack.ui.ui.notifications.NotificationsFragment"
+        android:label="@string/title_notifications"
+        tools:layout="@layout/fragment_notifications" />
+    <activity
+        android:id="@+id/play_Music"
+        android:name="com.example.kotlin_jetpack.ui.ui.Play_Music"
+        android:label="activity_play_music"
+        tools:layout="@layout/activity_play_music" />
+    <fragment
+        android:id="@+id/songlist"
+        android:name="com.example.kotlin_jetpack.ui.ui.songlist.Songlist"
+        android:label="fragment_songlist"
+        tools:layout="@layout/fragment_songlist" />
+</navigation>
