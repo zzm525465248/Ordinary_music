@@ -20,24 +20,64 @@
    <androidx.constraintlayout.widget.ConstraintLayout
        android:layout_width="match_parent"
        android:layout_height="0dp"
-       android:layout_marginStart="8dp"
-       android:layout_marginEnd="8dp"
        app:layout_constraintBottom_toBottomOf="parent"
        app:layout_constraintEnd_toEndOf="parent"
        app:layout_constraintStart_toStartOf="parent"
        app:layout_constraintTop_toBottomOf="@+id/toolbar3">
 
+      <LinearLayout
+          android:id="@+id/linearLayout4"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:background="@color/bj3"
+          android:gravity="center"
+          android:orientation="horizontal"
+          android:padding="5dp"
+          android:focusable="true"
+          android:focusableInTouchMode="true"
+          app:layout_constraintBottom_toBottomOf="parent"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintHorizontal_bias="0.0"
+          app:layout_constraintStart_toStartOf="parent">
+
+         <EditText
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_marginStart="5dp"
+             android:layout_weight="1"
+             android:background="@drawable/edit_view"
+
+             android:hint="来评论吧"
+             android:padding="5dp" />
+
+         <Button
+             android:layout_width="65dp"
+             android:layout_height="35dp"
+             android:layout_marginStart="5dp"
+             android:layout_marginEnd="5dp"
+             android:background="@drawable/top_button_shap"
+             android:text="评论"
+             android:textSize="15dp" />
+
+
+      </LinearLayout>
+
       <androidx.recyclerview.widget.RecyclerView
           android:id="@+id/rv"
           android:layout_width="0dp"
           android:layout_height="0dp"
+          android:layout_marginStart="8dp"
+          android:layout_marginEnd="8dp"
+          app:layout_constraintBottom_toTopOf="@+id/linearLayout4"
           app:layout_constraintEnd_toEndOf="parent"
           app:layout_constraintStart_toStartOf="parent"
-          app:layout_constraintTop_toTopOf="parent" />
+          app:layout_constraintTop_toBottomOf="@+id/linearLayout3" />
 
       <LinearLayout
+          android:id="@+id/linearLayout3"
           android:layout_width="0dp"
           android:layout_height="wrap_content"
+          android:layout_marginStart="8dp"
           android:layout_marginEnd="8dp"
           android:orientation="horizontal"
           app:layout_constraintEnd_toEndOf="parent"
@@ -47,21 +87,27 @@
          <TextView
              android:layout_width="wrap_content"
              android:layout_height="wrap_content"
-             android:text="评论区"
              android:layout_weight="1"
+             android:text="评论区"
              android:textColor="@color/black" />
          <TextView
              android:layout_width="wrap_content"
              android:layout_height="wrap_content"
              android:layout_marginEnd="10dp"
-             android:textColor="@color/black"
-             android:text="最热"
-              />
+             android:text="推荐"
+             android:textColor="@color/black" />
+
+         <TextView
+             android:id="@+id/hot"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_marginEnd="10dp"
+             android:text="最热" />
+
          <TextView
              android:layout_width="wrap_content"
              android:layout_height="wrap_content"
-             android:text="最新"
-             />
+             android:text="最新" />
 
       </LinearLayout>
    </androidx.constraintlayout.widget.ConstraintLayout>

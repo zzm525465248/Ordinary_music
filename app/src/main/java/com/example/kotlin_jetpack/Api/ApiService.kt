@@ -112,4 +112,8 @@ interface ApiService {
      //获取歌单评论
      @GET("comment/music")
      fun get_song_review(@Query("id") id:Int,@Query("limit") limit: Int,@Query("offset") page: Int) :Call<Review_song_Bean>
+
+     //获取歌单评论2
+     @GET("comment/new")
+     fun get_song_review2(@Query("id") id:Int, @Query("type") type:Int, @Query("pageNo") page: Int, @Query("pageSize") pagesize:Int, @Query("sortType") sorttype:Int, @Query("cursor") time: Long?)  :Call<Review2_song_Bean>
  }

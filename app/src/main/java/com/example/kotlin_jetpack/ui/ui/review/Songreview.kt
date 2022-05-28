@@ -2,7 +2,9 @@ package com.example.kotlin_jetpack.ui.ui.review
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
+import android.widget.Adapter
 import android.widget.LinearLayout
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
@@ -29,26 +31,50 @@ class Songreview : AppCompatActivity() {
         SongReview_rv_Adapter()
 
     }
+   private var  adapter :SongReview_rv_Adapter ?=null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         _binding = ActivitySongreviewBinding.inflate(layoutInflater)
         setContentView(binding.root)
         viewModel.tab_name.value= StarrySky.with().getNowPlayingSongId().toInt()
-        val adapter = paging_rv_adapter
+       adapter = paging_rv_adapter
         binding.rv.layoutManager=LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false)
         binding.rv.adapter=adapter
 
         lifecycleScope.launchWhenCreated {
 
             viewModel.loadMovie().collectLatest {
+                adapter!!.submitData(it)
 
-                adapter.submitData(it)
 
             }
 
 
 
+        }
+        initview()
+    }
+
+    private fun initview() {
+        binding.apply {
+            hot.setOnClickListener {
+
+
+
+                viewModel.tab_type.value=2
+                Log.d("www",viewModel.tab_type.value.toString())
+                adapter = paging_rv_adapter
+                binding.rv.layoutManager=LinearLayoutManager(this@Songreview,LinearLayoutManager.VERTICAL,false)
+                binding.rv.adapter=adapter
+                lifecycleScope.launchWhenCreated {
+
+                    viewModel.loadMovie().collectLatest {
+                        adapter!!.submitData(it)
+                    }
+                }
+            }
         }
     }
 }

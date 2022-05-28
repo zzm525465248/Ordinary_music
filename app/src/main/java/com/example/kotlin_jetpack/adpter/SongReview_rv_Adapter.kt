@@ -12,17 +12,18 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.kotlin_jetpack.R
 import com.example.kotlin_jetpack.adpter.SongReview_rv_Adapter.ViewHolder
+import com.example.kotlin_jetpack.bean.Review2_song_Bean
 import com.example.kotlin_jetpack.bean.Review_song_Bean
 import com.example.kotlin_jetpack.bean.SongSheetList_Bean
 import com.google.android.material.imageview.ShapeableImageView
 import com.lzx.starrysky.utils.KtPreferences.Companion.context
 
-class SongReview_rv_Adapter :PagingDataAdapter<Review_song_Bean.Comment, ViewHolder>(object :DiffUtil.ItemCallback<Review_song_Bean.Comment>(){
-    override fun areItemsTheSame(oldItem: Review_song_Bean.Comment, newItem: Review_song_Bean.Comment): Boolean {
+class SongReview_rv_Adapter :PagingDataAdapter<Review2_song_Bean.Data.Comment, ViewHolder>(object :DiffUtil.ItemCallback<Review2_song_Bean.Data.Comment>(){
+    override fun areItemsTheSame(oldItem: Review2_song_Bean.Data.Comment, newItem: Review2_song_Bean.Data.Comment): Boolean {
         return oldItem.user.userId==newItem.user.userId
     }
 
-    override fun areContentsTheSame(oldItem: Review_song_Bean.Comment, newItem: Review_song_Bean.Comment): Boolean {
+    override fun areContentsTheSame(oldItem: Review2_song_Bean.Data.Comment, newItem: Review2_song_Bean.Data.Comment): Boolean {
             return oldItem==newItem
     }
 }
@@ -47,7 +48,13 @@ class SongReview_rv_Adapter :PagingDataAdapter<Review_song_Bean.Comment, ViewHol
             holder.name.text=dataBean.user.nickname
             holder.date.text=dataBean.timeStr
             holder.nr.text=dataBean.content
+           if(dataBean.replyCount!=0) holder.hf.text=dataBean.replyCount.toString()+"条回复>>"
+           else{
+               holder.hf.visibility=View.GONE
+           }
+
             Glide.with(context!!).load(dataBean.user.avatarUrl).into(holder.imag)
+
         }
 
 

@@ -6,6 +6,7 @@
         <entry key="..\:/AndroidApp/Kotlin_JetPack/app/src/main/res/drawable/anim_state_list_m01.xml" value="0.234" />
         <entry key="..\:/AndroidApp/Kotlin_JetPack/app/src/main/res/drawable/bottom_btn_selected_color.xml" value="0.2275" />
         <entry key="..\:/AndroidApp/Kotlin_JetPack/app/src/main/res/drawable/cardview_bj.xml" value="0.2275" />
+        <entry key="..\:/AndroidApp/Kotlin_JetPack/app/src/main/res/drawable/edit_view.xml" value="0.234" />
         <entry key="..\:/AndroidApp/Kotlin_JetPack/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2275" />
         <entry key="..\:/AndroidApp/Kotlin_JetPack/app/src/main/res/drawable/ic_notifications_black_24dp.xml" value="0.2275" />
         <entry key="..\:/AndroidApp/Kotlin_JetPack/app/src/main/res/drawable/log_bt.xml" value="0.2275" />
@@ -24,7 +25,7 @@
         <entry key="..\:/AndroidApp/Kotlin_JetPack/app/src/main/res/layout/activity_main2.xml" value="0.3292572463768116" />
         <entry key="..\:/AndroidApp/Kotlin_JetPack/app/src/main/res/layout/activity_play_music.xml" value="0.33" />
         <entry key="..\:/AndroidApp/Kotlin_JetPack/app/src/main/res/layout/activity_song_list.xml" value="0.33559782608695654" />
-        <entry key="..\:/AndroidApp/Kotlin_JetPack/app/src/main/res/layout/activity_songreview.xml" value="0.3500905797101449" />
+        <entry key="..\:/AndroidApp/Kotlin_JetPack/app/src/main/res/layout/activity_songreview.xml" value="0.25" />
         <entry key="..\:/AndroidApp/Kotlin_JetPack/app/src/main/res/layout/bfl.xml" value="0.25" />
         <entry key="..\:/AndroidApp/Kotlin_JetPack/app/src/main/res/layout/content_bfl_base.xml" value="0.2265625" />
         <entry key="..\:/AndroidApp/Kotlin_JetPack/app/src/main/res/layout/fragment_1.xml" value="0.35144927536231885" />
