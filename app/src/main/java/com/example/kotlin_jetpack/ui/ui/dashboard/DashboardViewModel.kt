@@ -17,9 +17,9 @@ class DashboardViewModel : ViewModel() {
     private val onSellRepository by lazy{
         OnSellRepository()
     }
-    fun getuser(cookie:String,id:Int){
+    fun getuser(id:Int){
         viewModelScope.launch {
-            val  bean=onSellRepository.User(cookie,id)
+            val  bean=onSellRepository.User(id)
             userlist.value=bean
         }
     }

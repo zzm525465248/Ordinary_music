@@ -19,8 +19,12 @@ import com.dirror.lyricviewx.LyricViewX
 import com.dirror.lyricviewx.LyricViewXInterface
 import com.dirror.lyricviewx.OnPlayClickListener
 import com.dirror.lyricviewx.OnSingleClickListener
+import com.example.kotlin_jetpack.Api.ApiService
+import com.example.kotlin_jetpack.Api.OnSellRepository
+import com.example.kotlin_jetpack.Api.RetrofitClient
 import com.example.kotlin_jetpack.Api.toMinAndSeconds
 import com.example.kotlin_jetpack.R
+import com.example.kotlin_jetpack.bean.SongLyric_Bean
 import com.example.kotlin_jetpack.databinding.ActivityPlayMusicBinding
 import com.example.kotlin_jetpack.ui.PlayMusicActivityModel
 
@@ -33,6 +37,9 @@ import com.lzx.starrysky.SongInfo
 import com.lzx.starrysky.StarrySky
 
 import jp.wasabeef.glide.transformations.BlurTransformation
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 
 class Play_Music : BaseActivity() {
@@ -41,6 +48,10 @@ class Play_Music : BaseActivity() {
     private lateinit var _binding: ActivityPlayMusicBinding
     val binding: ActivityPlayMusicBinding
         get() = _binding
+
+    private val onSellRepository by lazy{
+        OnSellRepository()
+    }
 
     private val play_viewhodel by lazy {
         ViewModelProvider(this).get(PlayMusicActivityModel::class.java)
@@ -56,6 +67,9 @@ class Play_Music : BaseActivity() {
 
     override fun initView() {
         super.initView()
+        val item = playerController.getNowPlayingSongInfo()
+        getsong(item?.songId!!.toInt())
+        love_song(item?.songId!!.toInt())
 
         // 绑定歌词控件的样式
         // 绑定歌词控件的样式
@@ -127,9 +141,14 @@ class Play_Music : BaseActivity() {
                 if(playerController.isPlaying()){
 
                     playerController.skipToPrevious()
+                    //上一首歌词
+                    val item = playerController.getNowPlayingSongInfo()
+                    getsong(item?.songId!!.toInt())
                 }else if (!playerController.isPlaying()){
 
                     playerController.skipToPrevious()
+                    val item = playerController.getNowPlayingSongInfo()
+                    getsong(item?.songId!!.toInt())
                 }
             }
 
@@ -146,11 +165,13 @@ class Play_Music : BaseActivity() {
 
                     playerController.skipToNext()
                     //歌词
-
+                    val item = playerController.getNowPlayingSongInfo()
+                    getsong(item?.songId!!.toInt())
                 }else if (!playerController.isPlaying()){
 
                     playerController.skipToNext()
-
+                    val item = playerController.getNowPlayingSongInfo()
+                    getsong(item?.songId!!.toInt())
                 }
             }
 
@@ -274,20 +295,30 @@ class Play_Music : BaseActivity() {
 
     }
 
-    private fun getsong(id: Int) {
-        var lyric :String?=null
-        play_viewhodel.apply {
-            songlyric_list.observe(this@Play_Music, Observer {
+    private  fun getsong(id: Int) {
+        RetrofitClient.create(ApiService::class.java).getSongLyric(id).enqueue(object :
+            Callback<SongLyric_Bean> {
+            override fun onResponse(
+                call: Call<SongLyric_Bean>,
+                response: Response<SongLyric_Bean>
+            ) {
+                val bean=response.body()?.lrc?.lyric
+                binding.lyric.loadLyric(bean)
+                Log.d("gc",bean.toString())
+            }
 
-                lyric=it.lyric
-                Log.d("gc", lyric!!)
+            override fun onFailure(call: Call<SongLyric_Bean>, t: Throwable) {
 
-                binding.lyric.loadLyric(lyric)
+                t.printStackTrace()
+            }
+
             })
 
-        }.getsonglyric_list(id)
+        }
 
-    }
+
+
+
 
     companion object {
         // 动画循环时长

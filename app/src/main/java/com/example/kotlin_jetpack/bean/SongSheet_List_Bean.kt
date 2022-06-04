@@ -213,7 +213,7 @@ data class SongSheet_List_Bean(
             @SerializedName("sr")
             val sr: Int, // 44100
             @SerializedName("vd")
-            val vd: Int // -60985
+            val vd: Double // -60985
         )
 
         data class L(
@@ -226,7 +226,7 @@ data class SongSheet_List_Bean(
             @SerializedName("sr")
             val sr: Int, // 44100
             @SerializedName("vd")
-            val vd: Int // -56779
+            val vd: Double // -56779
         )
 
         data class M(
@@ -239,7 +239,7 @@ data class SongSheet_List_Bean(
             @SerializedName("sr")
             val sr: Int, // 44100
             @SerializedName("vd")
-            val vd: Int // -58412
+            val vd: Double // -58412
         )
     }
 }

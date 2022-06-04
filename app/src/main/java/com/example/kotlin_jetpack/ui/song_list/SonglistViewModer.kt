@@ -28,21 +28,16 @@ class SonglistViewModer : ViewModel() {
         OnSellRepository()
     }
 
-    fun getdetails(id:Long){
+    fun getdetails(id:Long,tk:String){
         viewModelScope.launch {
-            val  bean=onSellRepository.songSheet_details(id)
+            val  bean=onSellRepository.songSheet_details(id,tk)
             songsheet_details.value=bean.playlist
 
 
         }
     }
 
-    fun get_list(id:Long,page:Int){
-        viewModelScope.launch {
-            val bean=onSellRepository.songSheet_list(id,page)
-            songsheet_list.value=bean.songs
-        }
-    }
+
     //歌曲Url
     fun Song_List(id: Int){
         this.songList(id)

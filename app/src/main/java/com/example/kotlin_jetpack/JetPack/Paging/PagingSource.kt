@@ -1,5 +1,6 @@
 package com.example.kotlin_jetpack.JetPack.Paging
 
+import android.content.Context
 import android.util.Log
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
@@ -9,6 +10,7 @@ import com.example.kotlin_jetpack.Api.RetrofitClient
 
 import com.example.kotlin_jetpack.bean.SongSheetList_Bean
 import com.example.kotlin_jetpack.bean.SongSheet_List_Bean
+import com.lzx.starrysky.utils.KtPreferences
 import retrofit2.await
 import java.lang.Exception
 
@@ -22,9 +24,9 @@ class Paging( val id:Long,val size:Int) : PagingSource<Int, SongSheet_List_Bean.
             val page=params.key ?:0
             val pagesize=params.loadSize
 
+            val sp= KtPreferences.context?.getSharedPreferences("token", Context.MODE_PRIVATE)?.getString("cookie","www")
+            val response = RetrofitClient.create(ApiService::class.java).getSongSheet_list(id,page,pagesize,sp!!).await()
 
-            val response = RetrofitClient.create(ApiService::class.java).getSongSheet_list(id,page,pagesize).await()
-          //  val response1 = RetrofitClient.create(ApiService::class.java).getSongSheet_list(id1,page+20,pagesize).await()
             Log.d("size",response.songs.size.toString())
             Log.d("size22",size.toString())
             var prevKey: Int? = null

@@ -12,6 +12,8 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.view.GravityCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -126,6 +128,9 @@ class HomeFragment : Fragment() {
                activity?.startActivity(Intent)
 
            }
+           imageView9.setOnClickListener {
+               draw.openDrawer(GravityCompat.START)
+           }
        }
     }
 
@@ -217,9 +222,46 @@ class HomeFragment : Fragment() {
                             setText(R.id.new_sq,
                                 data?.get(0)?.uiElement?.subTitle?.title
                             )
+                            val cly=findViewById<ConstraintLayout>(R.id.new_song_cl)
                             val imag=findViewById<ImageView>(R.id.new_imag)
                             Glide.with(context).load(data?.get(0)?.uiElement?.image?.imageUrl).into(imag)
+//                            holder.itemClicked{
+//                                Log.d("id", data?.get(0)?.resourceExtInfo?.songData?.id.toString())
+//                                Log.d("id", data?.get(0)?.resourceExtInfo?.songData?.name!!)
+//                                Log.d("new","www")
+//                            }
+
+                            cly.setOnClickListener {
+                                Log.d("id", data?.get(0)?.resourceExtInfo?.songData?.id.toString())
+                                Log.d("id", data?.get(0)?.resourceExtInfo?.songData?.name!!)
+
+                               if (data!=null){
+                                   val id=data.get(0).resourceExtInfo.songData.id
+                                   Log.d("id", id.toString())
+                                   val info =SongInfo()
+                                info.songId= id.toString()
+                                info.songUrl=ApiService.SONG_URL+id+".mp3"
+                                info.songName= data.get(0).resourceExtInfo.songData.name
+                                info.songCover=data.get(0).uiElement.image.imageUrl
+                                info.artist="- "+data?.get(0)?.resourceExtInfo?.artists?.get(0)?.name
+
+                                if(playerController.getPlayList().isEmpty()){
+                                    playerController.playMusicByInfo(info)
+                                }else{
+                                    playerController.addSongInfo(info)
+
+                                    Log.d("size",playerController.getPlayList().size.toString())
+                                    for (app in playerController.getPlayList() ){
+                                        Log.d("for",app.songName)
+                                    }
+                                }
+                               }
+
+                            }
+
+
                         }
+
                     }
                 }
             }

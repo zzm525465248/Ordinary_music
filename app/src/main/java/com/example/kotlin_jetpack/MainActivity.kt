@@ -14,6 +14,7 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.edit
 import androidx.recyclerview.widget.RecyclerView
+import com.example.kotlin_jetpack.Api.AddCookiesInterceptor
 import com.example.kotlin_jetpack.Api.ApiService
 import com.example.kotlin_jetpack.JetPack.MainViewModel
 import com.example.kotlin_jetpack.R
@@ -25,12 +26,14 @@ import com.gyf.barlibrary.ImmersionBar
 import com.lzx.starrysky.SongInfo
 import com.lzx.starrysky.StarrySky
 import com.lzx.starrysky.utils.KtPreferences.Companion.context
+import okhttp3.OkHttpClient
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.*
+import java.util.concurrent.TimeUnit
 import kotlin.concurrent.fixedRateTimer
 
 
@@ -59,24 +62,22 @@ class MainActivity : AppCompatActivity()   {
         }
 
 
+        val okHttpClient= OkHttpClient.Builder()
+            .callTimeout(30, TimeUnit.SECONDS)
+            .addInterceptor(AddCookiesInterceptor())
+            .build()
 
 
 
-
-
-
-
-
-
-
-
-//
-//        bt.setOnClickListener {
-//         model.song_User()
         val tk= context?.getSharedPreferences("token",Context.MODE_PRIVATE)?.getString("cookie","www")
-        Log.d("log",tk.toString())
+        if(tk.equals("www")){
+            bt.visibleAlphaAnimation()
+            bt2.visibleAlphaAnimation()
+        }else{
+
             val retrofit = Retrofit.Builder()
-                .baseUrl("https://netease-cloud-music-api-dsjje2q7f-zzm525465248.vercel.app/")
+                .client(okHttpClient)
+                .baseUrl("http://47.101.205.65:3000/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()
             val apiService =retrofit.create(ApiService::class.java)
@@ -85,9 +86,9 @@ class MainActivity : AppCompatActivity()   {
                     call: Call<Login_statue_Bean>,
                     response: Response<Login_statue_Bean>
                 ) {
-                   val bean=response.body()
+                    val bean=response.body()
                     Log.d("log",bean.toString())
-                    Log.d("log",tk.toString())
+
                     if (bean != null) {
                         if(bean.data.code==200){
                             Log.d("log",bean.data.account.id.toString())
@@ -107,21 +108,21 @@ class MainActivity : AppCompatActivity()   {
                                 startActivity(intent)
                                 finish()
                             }
-                        }else{
-
-                            bt.visibleAlphaAnimation()
-                            bt2.visibleAlphaAnimation()
                         }
                     }
                 }
 
                 override fun onFailure(call: Call<Login_statue_Bean>, t: Throwable) {
-                        Log.d("e",t.toString())
+                    Log.d("e",t.toString())
+                    Log.d("e",call.toString())
                 }
 
             })
         }
-        // Observe the LiveData, passing in this activity as the LifecycleOwner and the observer.
+        Log.d("log",tk.toString())
+
+        }
+
 
 
 

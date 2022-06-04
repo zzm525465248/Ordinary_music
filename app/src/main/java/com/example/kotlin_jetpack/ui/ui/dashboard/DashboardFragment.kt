@@ -15,13 +15,14 @@ import androidx.viewpager2.widget.ViewPager2
 import com.bumptech.glide.Glide
 import com.example.kotlin_jetpack.bean.User_PlayList_Bean
 import com.example.kotlin_jetpack.databinding.FragmentDashboardBinding
+import com.example.kotlin_jetpack.ui.song_list.Song_list
 import com.google.android.material.tabs.TabLayoutMediator
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 
 
 class DashboardFragment : Fragment() {
-
+   private  var love_id : Long? =null
     private lateinit var viewpager:ViewPager2
     private var s1list:MutableList<User_PlayList_Bean.Playlist> = mutableListOf()
     private  var s2list: MutableList<User_PlayList_Bean.Playlist> = mutableListOf()
@@ -51,7 +52,7 @@ class DashboardFragment : Fragment() {
 
         Log.d("id",id.toString())
         iniview()
-        getUser_List(tk.toString(),id!!.toInt())
+        getUser_List(id!!.toInt())
         getplay_List(id)
         return root
     }
@@ -62,7 +63,7 @@ class DashboardFragment : Fragment() {
         dashboardViewModel.apply {
             playlist.observe(viewLifecycleOwner, Observer {
              //  s1list.addAll(it)
-
+              love_id=it.playlist[0].id
 
                 for ((index,value ) in it.playlist.withIndex()){
 
@@ -98,13 +99,15 @@ class DashboardFragment : Fragment() {
 
     private fun iniview() {
             binding.shapeableImageView.setOnClickListener {
-                val intent=Intent(context,Love_List::class.java)
+                Log.d("love",love_id.toString())
+                val intent=Intent(context,Song_list::class.java)
+                intent.putExtra("id",love_id)
                 startActivity(intent)
             }
 
     }
 
-    fun getUser_List(cookie:String,id:Int){
+    fun getUser_List(id:Int){
         dashboardViewModel.apply {
             userlist.observe(viewLifecycleOwner, Observer {
 
@@ -116,9 +119,10 @@ class DashboardFragment : Fragment() {
                     t2.text=it.profile.followeds.toString()+"粉丝"
                     t3.text="Lv."+it.level
 
+
                 }
             })
-        }.getuser(cookie,id)
+        }.getuser(id)
     }
 
     override fun onDestroyView() {

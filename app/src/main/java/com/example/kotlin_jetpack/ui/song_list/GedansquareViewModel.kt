@@ -30,9 +30,9 @@ class GedansquareViewModel : ViewModel() {
     }
 
     //获取推荐歌单
-    fun get_Recommended_song_list(id:String){
+    fun get_Recommended_song_list(){
         viewModelScope.launch {
-            val bean=onSellRepository.get_recommended_song_list(id)
+            val bean=onSellRepository.get_recommended_song_list()
             recommended_song_list.value=bean.recommend
         }
     }

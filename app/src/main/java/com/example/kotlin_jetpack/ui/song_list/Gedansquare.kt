@@ -52,7 +52,7 @@ class Gedansquare : AppCompatActivity() {
                 Log.d("viuew",recommended_song_list_view.size.toString())
             })
 
-        }.get_Recommended_song_list(tk.toString())
+        }.get_Recommended_song_list()
     }
 
     private fun initview() {

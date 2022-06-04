@@ -1,5 +1,6 @@
 package com.example.kotlin_jetpack.ui.song_list
 
+import android.content.Context
 import android.os.Bundle
 import android.text.Html
 import android.util.Log
@@ -42,11 +43,13 @@ class Song_list : AppCompatActivity() {
     private val binding get() = _binding!!
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-//        setContentView(R.layout.activity_song_list)
         _binding= ActivitySongListBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        val sp = getSharedPreferences("token", Context.MODE_PRIVATE)
+        val tk=sp?.getString("cookie","www")
         homeViewModel.id.value=intent.getLongExtra("id",0)
-        initview(intent.getLongExtra("id",0))
+        Log.d("www",intent.getLongExtra("id",0).toString())
+        initview(intent.getLongExtra("id",0),tk!!)
         initapptabar()
         songlist()
 
@@ -59,45 +62,18 @@ class Song_list : AppCompatActivity() {
         val adapter = paging_rv_adapter
         binding.rv.adapter=adapter
 
-//        paging_rv_adapter.setOnItemClickListener(object :OnRecyItemClickListener{
-//            override fun onClick(view: View?, position: Int,id:Int) {
-//                Log.d("post",id.toString())
-//
-//            }
-//        })
+
         lifecycleScope.launchWhenCreated {
             homeViewModel.loadMovie().collectLatest {
                 adapter.submitData(it)
             }
         }
 
-//            homeViewModel.apply {
-//            songsheet_list.observe(this@Song_list, Observer {
-//                val list1: MutableList<Song1> = mutableListOf()
-//                list1.addAll(it)
-//                Log.d("list1",list1.size.toString())
-////                binding.rv.setup<Song1> {
-////                    dataSource(list1)
-////                }
-//            })
-//        }.get_list(2146128,0)
-    }
-    fun getsong(id:Int) {
-        homeViewModel.apply {
-            songlist.observe(this@Song_list, Observer {
-               Log.d("song",it[0].url)
-            })
 
-        }.Song_List(id)
     }
 
-//    fun getsong_List(id:String){
-//        homeViewModel.apply {
-//            songlist.observe(this@Song_list, Observer {
-//                Log.d("list",it.size.toString())
-//            })
-//        }.SongURl_List(list)
-//    }
+
+
 
     private fun initapptabar() {
         binding.appbar.addOnOffsetChangedListener(object :AppBarStateChangeListener(){
@@ -125,7 +101,7 @@ class Song_list : AppCompatActivity() {
         })
     }
 
-    private fun initview(id: Long) {
+    private fun initview(id: Long,tk:String) {
       //  ImmersionBar.with(this).statusBarDarkFont(true).titleBar(binding.root).init()
         ImmersionBar.with(this).statusBarDarkFont(true).init()
         homeViewModel.apply {
@@ -150,7 +126,7 @@ class Song_list : AppCompatActivity() {
 
                 }
             })
-        }.getdetails(id)
+        }.getdetails(id,tk)
     }
 }
 

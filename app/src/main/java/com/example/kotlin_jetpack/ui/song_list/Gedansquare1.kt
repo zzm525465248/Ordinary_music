@@ -123,7 +123,7 @@ class Gedansquare1 : Fragment() {
                 Log.d("viuew",it.size.toString())
             })
 
-        }.get_Recommended_song_list(tk.toString())
+        }.get_Recommended_song_list()
     }
 
     companion object {

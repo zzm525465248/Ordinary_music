@@ -55,11 +55,11 @@ interface ApiService {
 
      //歌单详情页信息
      @GET("playlist/detail")
-     fun getSongsheet_details(@Query("id") id :Long) :Call<Songsheet_details_Bean>
+     fun getSongsheet_details(@Query("id") id :Long,@Query("cookie") cookie:String) :Call<Songsheet_details_Bean>
 
      //歌单全部歌曲
      @GET("playlist/track/all")
-     fun getSongSheet_list(@Query("id") id: Long, @Query("offset") page:Int, @Query("limit") size:Int) :Call<SongSheet_List_Bean>
+     fun getSongSheet_list(@Query("id") id: Long, @Query("offset") page:Int, @Query("limit") size:Int,@Query("cookie") cookie:String) :Call<SongSheet_List_Bean>
 
      //获取歌曲URL数组
      @GET("song/url")
@@ -83,7 +83,7 @@ interface ApiService {
 
      //获取账户信息
      @GET("user/detail")
-     fun get_User(@Query("cookie") cookie:String,@Query("uid") uid:Int) :Call<User_Bean>
+     fun get_User(@Query("uid") uid:Int) :Call<User_Bean>
 
      //获取喜欢列表
      @GET("likelist")
