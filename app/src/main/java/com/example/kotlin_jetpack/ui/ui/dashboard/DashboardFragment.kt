@@ -15,14 +15,21 @@ import androidx.viewpager2.widget.ViewPager2
 import com.bumptech.glide.Glide
 import com.example.kotlin_jetpack.bean.User_PlayList_Bean
 import com.example.kotlin_jetpack.databinding.FragmentDashboardBinding
+<<<<<<< HEAD
 import com.example.kotlin_jetpack.ui.song_list.Song_list
+=======
+>>>>>>> origin/main
 import com.google.android.material.tabs.TabLayoutMediator
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 
 
 class DashboardFragment : Fragment() {
+<<<<<<< HEAD
    private  var love_id : Long? =null
+=======
+
+>>>>>>> origin/main
     private lateinit var viewpager:ViewPager2
     private var s1list:MutableList<User_PlayList_Bean.Playlist> = mutableListOf()
     private  var s2list: MutableList<User_PlayList_Bean.Playlist> = mutableListOf()
@@ -52,7 +59,11 @@ class DashboardFragment : Fragment() {
 
         Log.d("id",id.toString())
         iniview()
+<<<<<<< HEAD
         getUser_List(id!!.toInt())
+=======
+        getUser_List(tk.toString(),id!!.toInt())
+>>>>>>> origin/main
         getplay_List(id)
         return root
     }
@@ -63,7 +74,11 @@ class DashboardFragment : Fragment() {
         dashboardViewModel.apply {
             playlist.observe(viewLifecycleOwner, Observer {
              //  s1list.addAll(it)
+<<<<<<< HEAD
               love_id=it.playlist[0].id
+=======
+
+>>>>>>> origin/main
 
                 for ((index,value ) in it.playlist.withIndex()){
 
@@ -99,15 +114,23 @@ class DashboardFragment : Fragment() {
 
     private fun iniview() {
             binding.shapeableImageView.setOnClickListener {
+<<<<<<< HEAD
                 Log.d("love",love_id.toString())
                 val intent=Intent(context,Song_list::class.java)
                 intent.putExtra("id",love_id)
+=======
+                val intent=Intent(context,Love_List::class.java)
+>>>>>>> origin/main
                 startActivity(intent)
             }
 
     }
 
+<<<<<<< HEAD
     fun getUser_List(id:Int){
+=======
+    fun getUser_List(cookie:String,id:Int){
+>>>>>>> origin/main
         dashboardViewModel.apply {
             userlist.observe(viewLifecycleOwner, Observer {
 
@@ -119,10 +142,16 @@ class DashboardFragment : Fragment() {
                     t2.text=it.profile.followeds.toString()+"粉丝"
                     t3.text="Lv."+it.level
 
+<<<<<<< HEAD
 
                 }
             })
         }.getuser(id)
+=======
+                }
+            })
+        }.getuser(cookie,id)
+>>>>>>> origin/main
     }
 
     override fun onDestroyView() {

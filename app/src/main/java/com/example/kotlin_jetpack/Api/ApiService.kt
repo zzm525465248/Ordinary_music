@@ -13,7 +13,11 @@ import retrofit2.http.*
 interface ApiService {
 
     companion object{
+<<<<<<< HEAD
         const val BASE_URL="http://47.101.205.65:3000/"
+=======
+
+>>>>>>> origin/main
         const val SONG_URL="https://music.163.com/song/media/outer/url?id="
 
 
@@ -55,11 +59,19 @@ interface ApiService {
 
      //歌单详情页信息
      @GET("playlist/detail")
+<<<<<<< HEAD
      fun getSongsheet_details(@Query("id") id :Long,@Query("cookie") cookie:String) :Call<Songsheet_details_Bean>
 
      //歌单全部歌曲
      @GET("playlist/track/all")
      fun getSongSheet_list(@Query("id") id: Long, @Query("offset") page:Int, @Query("limit") size:Int,@Query("cookie") cookie:String) :Call<SongSheet_List_Bean>
+=======
+     fun getSongsheet_details(@Query("id") id :Long) :Call<Songsheet_details_Bean>
+
+     //歌单全部歌曲
+     @GET("playlist/track/all")
+     fun getSongSheet_list(@Query("id") id: Long, @Query("offset") page:Int, @Query("limit") size:Int) :Call<SongSheet_List_Bean>
+>>>>>>> origin/main
 
      //获取歌曲URL数组
      @GET("song/url")
@@ -83,7 +95,11 @@ interface ApiService {
 
      //获取账户信息
      @GET("user/detail")
+<<<<<<< HEAD
      fun get_User(@Query("uid") uid:Int) :Call<User_Bean>
+=======
+     fun get_User(@Query("cookie") cookie:String,@Query("uid") uid:Int) :Call<User_Bean>
+>>>>>>> origin/main
 
      //获取喜欢列表
      @GET("likelist")
@@ -109,6 +125,7 @@ interface ApiService {
      @GET("/top/playlist")
      fun get_songsheet_list(@Query("cat") cat:String,@Query("limit") limit:Int,@Query("offset") page:Int):Call<SongSheetList_Bean>
 
+<<<<<<< HEAD
      //获取歌单评论
      @GET("comment/music")
      fun get_song_review(@Query("id") id:Int,@Query("limit") limit: Int,@Query("offset") page: Int) :Call<Review_song_Bean>
@@ -116,4 +133,6 @@ interface ApiService {
      //获取歌单评论2
      @GET("comment/new")
      fun get_song_review2(@Query("id") id:Int, @Query("type") type:Int, @Query("pageNo") page: Int, @Query("pageSize") pagesize:Int, @Query("sortType") sorttype:Int, @Query("cursor") time: Long?)  :Call<Review2_song_Bean>
+=======
+>>>>>>> origin/main
  }

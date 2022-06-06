@@ -138,6 +138,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:src="@drawable/love"/>
+<<<<<<< HEAD
 
         <ImageView
             android:id="@+id/imag_comments"
@@ -145,6 +146,13 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:src="@drawable/pl" />
+=======
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:src="@drawable/pl"/>
+>>>>>>> origin/main
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

@@ -5,12 +5,18 @@
     <color name="purple_700">#FF3700B3</color>
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
+<<<<<<< HEAD
     <color name="review">#2196F3</color>
+=======
+>>>>>>> origin/main
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="bj1">#94C2BFBF</color>
     <color name="bj2">#86F3F3F3</color>
+<<<<<<< HEAD
     <color name="bj3">#B7F3F3F3</color>
+=======
+>>>>>>> origin/main
     <color name="yellow">#FFC107</color>
     <color name="xui_btn_green_normal_color">#DCE3E2</color>
     <color name="red1">#28FF5722</color>
