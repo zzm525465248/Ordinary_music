@@ -39,8 +39,6 @@ import kotlin.math.log
 
 class HomeFragment : Fragment() {
     private val playerController=StarrySky.with()
-
-
     val list: MutableList<List<Resource>> = mutableListOf()
     val new_list: MutableList<List<Resource>> = mutableListOf()
 

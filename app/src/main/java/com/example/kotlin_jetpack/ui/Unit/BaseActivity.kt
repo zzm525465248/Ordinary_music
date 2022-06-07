@@ -7,13 +7,21 @@ import android.util.Log
 import android.view.View
 import android.widget.Toolbar
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.Observer
 import com.example.kotlin_jetpack.R
+import com.example.kotlin_jetpack.bean.Block
 import com.example.kotlin_jetpack.ui.ui.Play_Music
 import com.gyf.barlibrary.ImmersionBar
 
 abstract class BaseActivity : AppCompatActivity()  {
 
+    protected fun <T :Any> LiveData<T>.observerKt(block: (T)->Unit){
+         this.observe(this@BaseActivity, Observer {data->
+             block(data)
 
+         })
+    }
 
 
     override fun onCreate(savedInstanceState: Bundle?) {

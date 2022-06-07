@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Kotlin_JetPack</string>
+    <string name="app_name">普通音乐</string>
     <string name="title_activity_main">MainActivity</string>
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>

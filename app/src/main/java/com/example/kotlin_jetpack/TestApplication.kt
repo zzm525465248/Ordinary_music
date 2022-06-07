@@ -12,7 +12,6 @@ import javax.crypto.SecretKey
 
 open class TestApplication :Application() {
 
-
     companion object{
         @SuppressLint("StaticFieldLeak")
         lateinit var context: Context
@@ -28,5 +27,3 @@ open class TestApplication :Application() {
     }
 
 }
-
-
